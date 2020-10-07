@@ -19,10 +19,18 @@ func _ready():
 
 
 func _physics_process(delta):
-	self._movement_loop()
+	if is_network_master():
+		self._movement_loop()
+		rpc_unreliable("update_position", position, _velocity, $Sprite.flip_h)
 	
 	self._velocity.y += GRAVITY * (delta)
 	self._velocity = self.move_and_slide(_velocity, UP)
+
+
+remote func update_position(pos, velocity, flip_h): # remote / puppet
+	self.position = pos
+	self._velocity = velocity
+	$Sprite.flip_h = flip_h
 
 
 func _movement_loop():
@@ -43,4 +51,3 @@ func _movement_loop():
 
 	if jump and self.is_on_floor():
 		_velocity.y = -self.jump_height
-

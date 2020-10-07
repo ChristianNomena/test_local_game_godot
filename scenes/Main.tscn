@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/button1.png" type="Texture" id=1]
 [ext_resource path="res://assets/button3.png" type="Texture" id=2]
@@ -16,11 +16,11 @@ font_data = ExtResource( 4 )
 size = 50
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 30
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 26
 font_data = ExtResource( 6 )
 
@@ -30,6 +30,10 @@ font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 26
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 24
 font_data = ExtResource( 6 )
 
 [node name="Main" type="Control"]
@@ -113,45 +117,66 @@ __meta__ = {
 }
 
 [node name="LabelName" type="Label" parent="Panel"]
-margin_left = 320.0
+margin_left = 312.0
 margin_top = 34.0
-margin_right = 430.0
+margin_right = 422.0
 margin_bottom = 76.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Name :"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LineEditName" type="LineEdit" parent="Panel"]
-margin_left = 438.0
+margin_left = 459.0
 margin_top = 32.0
-margin_right = 704.0
+margin_right = 725.0
 margin_bottom = 78.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Player"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelHost" type="Label" parent="Panel"]
+[node name="LabelAddress" type="Label" parent="Panel"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -192.0
+margin_left = -200.0
 margin_top = 88.0
-margin_right = -103.0
+margin_right = -58.0
 margin_bottom = 130.0
 custom_fonts/font = SubResource( 5 )
-text = "Host :"
+text = "Address :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="LineEditHost" type="LineEdit" parent="Panel"]
+[node name="LineEditAddress" type="LineEdit" parent="Panel"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -72.0
+margin_left = -51.0
 margin_top = 88.0
-margin_right = 192.0
+margin_right = 213.0
 margin_bottom = 134.0
 custom_fonts/font = SubResource( 6 )
 text = "localhost"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelStatus" type="Label" parent="Panel"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -48.0
+margin_top = -96.0
+margin_right = 47.0
+margin_bottom = -62.0
+custom_fonts/font = SubResource( 7 )
+text = "Message"
+align = 1
+uppercase = true
 [connection signal="pressed" from="Panel/VBoxContainer/HostButton" to="." method="_on_HostButton_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/JoinButton" to="." method="_on_JoinButton_pressed"]
